@@ -48,7 +48,7 @@ public class DashboardFragment extends Fragment {
     }
 
     private void jsonRun() {
-        String url = "https://raw.githubusercontent.com/JanInInternet/CCC_Radio/master/app/src/main/res/Speaker%26Rec.json";
+        String url = "https://raw.githubusercontent.com/JanInInternet/CCC_Radio/217884b1faf2b08967d15fdbe47fc06fddf392f5/app/src/main/res/SpeakerAndReg.json";
 
         JsonObjectRequest request = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
