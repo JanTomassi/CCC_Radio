@@ -4,6 +4,11 @@
       "nome": "Voci Fuoci Campo",
       "imgUrl": "http://...",
       "descrizone": "Questa è una descizione"
+    },
+    {
+      "nome": "Voci Fuoci Campo\nQuesta è un altra cosa",
+      "imgUrl": "http://...",
+      "descrizone": "Questa è una descizione"
     }
   ]
 }
