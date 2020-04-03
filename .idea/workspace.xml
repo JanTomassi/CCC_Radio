@@ -27,6 +27,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jantomassi/newcccradioapp/ui/speaker/DashboardFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jantomassi/newcccradioapp/ui/speaker/DashboardFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/Speaker&amp;Rec.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/Speaker&amp;Rec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_speaker.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_speaker.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -472,7 +475,21 @@
       <option name="project" value="LOCAL" />
       <updated>1585953802895</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Implemented JSON reading and creation of CardView">
+      <created>1585953977271</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1585953977272</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Json update 0.1">
+      <created>1585954126008</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1585954126008</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -518,7 +535,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="Implemented JSON reading and creation of CardView2" />
     <MESSAGE value="Implemented JSON reading and creation of CardView" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented JSON reading and creation of CardView" />
+    <MESSAGE value="Json update 0.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Json update 0.1" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
