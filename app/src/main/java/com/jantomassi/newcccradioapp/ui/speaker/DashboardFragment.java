@@ -48,14 +48,14 @@ public class DashboardFragment extends Fragment {
     }
 
     private void jsonRun() {
-        String url = "https://pixabay.com/api/?key=5303976-fd6581ad4ac165d1b75cc15b3&q=kitten&image_type=photo&pretty=true";
+        String url = "https://raw.githubusercontent.com/JanInInternet/CCC_Radio/master/app/src/main/res/Speaker%26Rec.json";
 
         JsonObjectRequest request = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            JSONArray jsonArray = response.getJSONArray("hits");
+                            JSONArray jsonArray = response.getJSONArray("speaker");
 
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject hit = jsonArray.getJSONObject(i);
@@ -112,6 +112,7 @@ public class DashboardFragment extends Fragment {
         TextView tx = new TextView(getContext());
         tx.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
         tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        tx.setTextSize(18);
         tx.setText(text);
         tr.addView(tx);
         return tr;
