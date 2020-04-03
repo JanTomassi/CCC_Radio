@@ -48,7 +48,8 @@ public class DashboardFragment extends Fragment {
     }
 
     private void jsonRun() {
-        String url = "https://raw.githubusercontent.com/JanInInternet/CCC_Radio/2cda41c1a0c4d24125ddddcf30c10622a9653470/app/src/main/res/SpeakerAndReg.json";
+        String url = "https://raw.githubusercontent.com/JanInInternet" +
+                "/CCC_Radio/master/app/src/main/res/SpeakerAndReg.json";
 
         JsonObjectRequest request = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -99,11 +100,12 @@ public class DashboardFragment extends Fragment {
     private LinearLayout button(LinearLayout tr, String imgUrl) {
         ImageView drawable = new ImageView(getContext());
         drawable.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 2f));
-        drawable.setMinimumWidth(600);
+        drawable.setMinimumWidth(400);
+        drawable.setMinimumHeight(400);
         //Picasso.get().setLoggingEnabled(true);
         Picasso.get().load(imgUrl)
-                .resize(350, 350)
-                .centerInside()
+                .resize(300, 300)
+                .centerCrop()
                 .into(drawable);
         tr.addView(drawable);
         return tr;
