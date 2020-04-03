@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Chris Cappell College Radio</string>
+    <string name="title_home">Radio</string>
+    <string name="title_dashboard">Speakers</string>
+    <string name="URL">https://streamingv2.shoutcast.com/chriscappellcollegeradio</string>
+
+    <!-- Not use String-->
+    <string name="Play_msg">Playing</string>
+    <string name="Pause_msg">Pause</string>
+    <string name="Loading_msg">Loading</string>
+</resources>
