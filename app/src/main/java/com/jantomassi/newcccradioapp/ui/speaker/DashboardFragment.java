@@ -99,9 +99,12 @@ public class DashboardFragment extends Fragment {
 
     private LinearLayout button(LinearLayout tr, String imgUrl) {
         ImageView drawable = new ImageView(getContext());
-        drawable.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 2f));
-        drawable.setMinimumWidth(400);
-        drawable.setMinimumHeight(400);
+        LinearLayout.LayoutParams _ = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 2f);
+        _.weight = 100f;
+        drawable.setLayoutParams(_);
+
+        drawable.setMinimumWidth(20);
+        drawable.setMinimumHeight(20);
         //Picasso.get().setLoggingEnabled(true);
         Picasso.get().load(imgUrl)
                 .resize(300, 300)
