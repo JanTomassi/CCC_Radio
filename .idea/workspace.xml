@@ -408,7 +408,21 @@
       <option name="project" value="LOCAL" />
       <updated>1585951934769</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Implemented JSON reading and creation of CardView">
+      <created>1585952321666</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1585952321666</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Implemented JSON reading and creation of CardView">
+      <created>1585952446258</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1585952446258</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
