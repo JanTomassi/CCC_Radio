@@ -27,6 +27,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jantomassi/newcccradioapp/ui/speaker/DashboardFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jantomassi/newcccradioapp/ui/speaker/DashboardFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/SpeakerAndReg.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/SpeakerAndReg.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_speaker.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_speaker.xml" afterDir="false" />
@@ -70,8 +71,8 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="BundleExportedModule" value="app" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_2_API_29" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-04-03T19:33:30.875Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Galaxy_Nexus_API_24" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-04-04T00:23:06.861Z" />
     <property name="ExportApk.ApkPath" value="D:\Programmi\Android\Projects\CCCRadioApp\app" />
     <property name="ExportApk.BuildVariants" value="release" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -80,6 +81,11 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Programmi\Android\Projects\CCCRadioApp\app\src\main\res" />
+      <recent name="D:\Programmi\Android\Projects\CCCRadioApp\app\src\main\res\menu" />
+      <recent name="D:\Programmi\Android\Projects\CCCRadioApp\app\src\main\res\values" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Programmi\Android\Projects\CCCRadioApp\app" />
     </key>
@@ -166,13 +172,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1581093531444</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Init">
-      <created>1581181414373</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1581181414373</updated>
     </task>
     <task id="LOCAL-00009" summary="Init">
       <created>1581181562753</created>
@@ -510,7 +509,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585956083009</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Json update 1">
+      <created>1585956865954</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1585956865954</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -570,7 +576,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/jantomassi/newcccradioapp/ui/speaker/DashboardFragment.java</url>
-          <line>34</line>
+          <line>39</line>
           <properties field="mSpeakerItem" class="com.jantomassi.newcccradioapp.ui.speaker.DashboardFragment" />
           <option name="timeStamp" value="49" />
         </line-breakpoint>

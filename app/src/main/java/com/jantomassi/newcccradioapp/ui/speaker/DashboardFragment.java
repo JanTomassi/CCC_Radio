@@ -1,6 +1,9 @@
 package com.jantomassi.newcccradioapp.ui.speaker;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -82,10 +85,19 @@ public class DashboardFragment extends Fragment {
         mRequestQueue.add(request);
     }
 
+    private static float pixTodp(float px, Context context) {
+        try {
+            return px / ((float) context.getResources().getDisplayMetrics().densityDpi / DisplayMetrics.DENSITY_DEVICE_STABLE);
+        } catch (NoSuchFieldError e) {
+            Log.e("pixTodp", e.toString());
+            return px / ((float) context.getResources().getDisplayMetrics().densityDpi / DisplayMetrics.DENSITY_DEFAULT);
+        }
+    }
+
     private void elementGen(LinearLayout tableLayout) {
         for (SpeakerItem j : mSpeakerItem) {
             //Init horizontal Layout
-            LinearLayout layout = new LinearLayout(getContext());
+            LinearLayout layout = new LinearLayout(tableLayout.getContext());
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
             lp.setMargins(0, 8, 0, 8);
 
@@ -98,16 +110,14 @@ public class DashboardFragment extends Fragment {
     }
 
     private LinearLayout button(LinearLayout tr, String imgUrl) {
-        ImageView drawable = new ImageView(getContext());
-        LinearLayout.LayoutParams _ = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 2f);
-        _.weight = 100f;
-        drawable.setLayoutParams(_);
-
-        drawable.setMinimumWidth(20);
-        drawable.setMinimumHeight(20);
+        ImageView drawable = new ImageView(tableLayout.getContext());
+        drawable.setMinimumWidth((int) pixTodp(200f, tableLayout.getContext()));
+        drawable.setMinimumHeight((int) pixTodp(200f, tableLayout.getContext()));
+        drawable.setMaxWidth((int) pixTodp(450f, tableLayout.getContext()));
+        drawable.setMaxHeight((int) pixTodp(450f, tableLayout.getContext()));
         //Picasso.get().setLoggingEnabled(true);
         Picasso.get().load(imgUrl)
-                .resize(300, 300)
+                .resize((int) pixTodp(425f, tableLayout.getContext()), (int) pixTodp(425f, tableLayout.getContext()))
                 .centerCrop()
                 .into(drawable);
         tr.addView(drawable);
@@ -115,8 +125,8 @@ public class DashboardFragment extends Fragment {
     }
 
     private LinearLayout text(LinearLayout tr, String text) {
-        TextView tx = new TextView(getContext());
-        tx.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
+        TextView tx = new TextView(tableLayout.getContext());
+        tx.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 0f));
         tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         tx.setTextSize(18);
         tx.setText(text);
