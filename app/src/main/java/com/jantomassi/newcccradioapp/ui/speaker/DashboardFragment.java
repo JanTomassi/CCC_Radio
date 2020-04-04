@@ -98,8 +98,11 @@ public class DashboardFragment extends Fragment {
         for (SpeakerItem j : mSpeakerItem) {
             //Init horizontal Layout
             LinearLayout layout = new LinearLayout(tableLayout.getContext());
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
-            lp.setMargins(0, 8, 0, 8);
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+            lp.setMargins((int) pixTodp(16f, tableLayout.getContext()),
+                    (int) pixTodp(32f, tableLayout.getContext()),
+                    (int) pixTodp(16f, tableLayout.getContext()),
+                    (int) pixTodp(16f, tableLayout.getContext()));
 
             layout.setLayoutParams(lp);
 
@@ -117,7 +120,7 @@ public class DashboardFragment extends Fragment {
         drawable.setMaxHeight((int) pixTodp(450f, tableLayout.getContext()));
         //Picasso.get().setLoggingEnabled(true);
         Picasso.get().load(imgUrl)
-                .resize((int) pixTodp(425f, tableLayout.getContext()), (int) pixTodp(425f, tableLayout.getContext()))
+                .resize((int) pixTodp(375f, tableLayout.getContext()), (int) pixTodp(375f, tableLayout.getContext()))
                 .centerCrop()
                 .into(drawable);
         tr.addView(drawable);
@@ -126,8 +129,8 @@ public class DashboardFragment extends Fragment {
 
     private LinearLayout text(LinearLayout tr, String text) {
         TextView tx = new TextView(tableLayout.getContext());
-        tx.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 0f));
-        tx.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        tx.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 2f));
+        tx.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
         tx.setTextSize(18);
         tx.setText(text);
         tr.addView(tx);
