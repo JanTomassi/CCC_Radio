@@ -26,6 +26,7 @@ public class RadioFragment extends Fragment {
 
         radioViewModel = ViewModelProviders.of(this).get(RadioViewModel.class);
         View root = inflater.inflate(R.layout.fragment_radio, container, false);
+        audioStreamCtlBtnImg.setValue(R.drawable.ic_file_download_black_24dp);
 
         final ImageButton audioStreamCtlBtn = root.findViewById(R.id.audioStreamCtlBtn);
 
