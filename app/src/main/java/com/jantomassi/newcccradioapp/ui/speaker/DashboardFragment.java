@@ -25,6 +25,7 @@ import com.jantomassi.newcccradioapp.R;
 import com.jantomassi.newcccradioapp.SpeakerItem;
 import com.squareup.picasso.Picasso;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -106,13 +107,13 @@ public class DashboardFragment extends Fragment {
 
             layout.setLayoutParams(lp);
 
-            layout = button(layout, j.getImageUrl());
+            layout = image(layout, j.getImageUrl());
             layout = text(layout, j.getTitle());
             tableLayout.addView(layout);
         }
     }
 
-    private LinearLayout button(LinearLayout tr, String imgUrl) {
+    private LinearLayout image(@NotNull LinearLayout tr, String imgUrl) {
         ImageView drawable = new ImageView(tableLayout.getContext());
         drawable.setMinimumWidth((int) pixTodp(200f, tableLayout.getContext()));
         drawable.setMinimumHeight((int) pixTodp(200f, tableLayout.getContext()));
@@ -127,7 +128,7 @@ public class DashboardFragment extends Fragment {
         return tr;
     }
 
-    private LinearLayout text(LinearLayout tr, String text) {
+    private LinearLayout text(@NotNull LinearLayout tr, String text) {
         TextView tx = new TextView(tableLayout.getContext());
         tx.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 2f));
         tx.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
