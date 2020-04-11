@@ -20,14 +20,14 @@ public class NotificationReceiver extends BroadcastReceiver {
         if (message.equals("Play")) {
             if (MediaService.mediaPlayer.isPlaying()) {
                 //Media player control action
-                mediaService.mediaPause();
+                mediaService.mediaPause(context);
                 //MediaService.requestAudioFocus();
 
                 //Notification media player control
                 mediaService.notificationMediaPlayerCtl(context);
             } else {
                 //Media player control action
-                mediaService.mediaPlay();
+                mediaService.mediaPlay(context);
                 MediaService.requestAudioFocus();
 
                 //Notification media player control

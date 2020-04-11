@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         this.setContentView(R.layout.activity_main);
         navSetup();
 
-        Intent intent = new Intent(this, MediaService.class);
+        Intent intent = new Intent(getApplicationContext(), MediaService.class);
         //setVolumeControlStream(AudioManager.STREAM_MUSIC);
         startService(intent);
     }

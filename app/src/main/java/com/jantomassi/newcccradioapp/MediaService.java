@@ -6,11 +6,8 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.media.AudioAttributes;
-import android.media.AudioFocusRequest;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.IBinder;
 import android.os.PowerManager;
@@ -23,8 +20,6 @@ import androidx.core.app.NotificationManagerCompat;
 import com.jantomassi.newcccradioapp.ui.radio.RadioFragment;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 import static com.jantomassi.newcccradioapp.App.CHANNEL_1_ID;
@@ -37,18 +32,12 @@ public class MediaService extends Service implements MediaPlayer.OnPreparedListe
     //Audio and Media Player
     public static MediaPlayer mediaPlayer;
     public static AudioManager audioManager;
-    public static AudioFocusRequest focusRequest;
     //Notification
-    public static NotificationManagerCompat notificationManager;
-    public static Notification notification;
+    public NotificationManagerCompat notificationManager;
+    public Notification notification;
     static AudioManager.OnAudioFocusChangeListener afChangeListener;
     //Instantiate file and Ambient Variable
-    private static Context context;
     private static int audioFocusResult;
-    //AudioFocus Request
-    private static AudioAttributes playbackAttributes;
-    Map<String, String> headers = new HashMap<>();
-    Uri uri;
     private WifiManager.WifiLock wifiLock;
     private PowerManager.WakeLock wakeLock;
 
@@ -82,8 +71,8 @@ public class MediaService extends Service implements MediaPlayer.OnPreparedListe
     public void onCreate() {
         super.onCreate();
         mediaPlayer = new MediaPlayer();
-        audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-        notificationManager = NotificationManagerCompat.from(this);
+        getApplicationContext();
+        audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
 
         PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
         wakeLock = Objects.requireNonNull(powerManager).newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
@@ -97,26 +86,22 @@ public class MediaService extends Service implements MediaPlayer.OnPreparedListe
 
         mediaPlayer.setWakeMode(getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK);
 
-        playbackAttributes = new AudioAttributes.Builder()
-                .setUsage(AudioAttributes.USAGE_MEDIA)
-                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-                .build();
         afChangeListener =
                 new AudioManager.OnAudioFocusChangeListener() {
                     public final void onAudioFocusChange(int focusChange) {
                         if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
                             // Pause playback immediately
-                            mediaPause();
+                            mediaPause(getApplicationContext());
                         } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT) {
                             // Pause playback
-                            mediaPause();
+                            mediaPause(getApplicationContext());
                         } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
                             // Lower the volume, keep playing
-                            mediaDuck();
+                            mediaDuck(getApplicationContext());
                         } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
                             // Your app has been granted audio focus again
                             // Raise volume to normal, restart playback if necessary
-                            mediaPlay();
+                            mediaPlay(getApplicationContext());
                         }
                     }
                 };
@@ -127,14 +112,14 @@ public class MediaService extends Service implements MediaPlayer.OnPreparedListe
         RadioFragment.audioStreamCtlBtnImg.setValue(R.drawable.pauseButton);
         requestAudioFocus();
         if (audioFocusResult == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) mp.start();
-        context = this;
-        notificationMediaPlayerCtl(context);
+        notificationMediaPlayerCtl(getApplicationContext());
         Log.i("MediaPlayer", "MediaPlayer is ready");
         startForeground(1, notification);
     }
 
 
     public void notificationMediaPlayerCtl(Context context) {
+        notificationManager = NotificationManagerCompat.from(context);
 
         Intent playIntent = new Intent(context, NotificationReceiver.class);
         playIntent.putExtra("toastMessage", "Play");
@@ -148,21 +133,21 @@ public class MediaService extends Service implements MediaPlayer.OnPreparedListe
                 .setSmallIcon(R.drawable.ic_radio_black_24dp)
                 .setContentTitle("Chris Cappell College Radio")
                 .setColor(Color.rgb(255, 180, 0))
-                .addAction(RadioFragment.audioStreamCtlBtnImg.getValue(), "PlayOrPause", playPendingIntent)
+                .addAction(RadioFragment.imgGetValue(), "PlayOrPause", playPendingIntent)
                 .setStyle(new androidx.media.app.NotificationCompat.MediaStyle().setShowActionsInCompactView(0))
                 .build();
 
         notificationManager.notify(1, notification);
     }
 
-    public void mediaPause() {
+    public void mediaPause(Context context) {
         RadioFragment.audioStreamCtlBtnImg.setValue(R.drawable.playButton);
         mediaPlayer.pause();
         notificationMediaPlayerCtl(context);
         Log.d("MediaPlaying", String.format("Is Playing %s", mediaPlayer.isPlaying()));
     }
 
-    public void mediaPlay() {
+    public void mediaPlay(Context context) {
         RadioFragment.audioStreamCtlBtnImg.setValue(R.drawable.pauseButton);
         requestAudioFocus();
         if (!mediaPlayer.isPlaying() &&
@@ -172,7 +157,7 @@ public class MediaService extends Service implements MediaPlayer.OnPreparedListe
         notificationMediaPlayerCtl(context);
     }
 
-    private void mediaDuck() {
+    private void mediaDuck(Context context) {
         RadioFragment.audioStreamCtlBtnImg.setValue(R.drawable.pauseButton);
         if (!mediaPlayer.isPlaying()) mediaPlayer.start();
         Log.d("MediaPlaying", String.format("Dock %s", mediaPlayer.isPlaying()));
@@ -191,7 +176,7 @@ public class MediaService extends Service implements MediaPlayer.OnPreparedListe
         wakeLock.release();
         stopForeground(true);
         stopSelf(1);
-        android.os.Process.killProcess(android.os.Process.myPid());
+        //android.os.Process.killProcess(android.os.Process.myPid());
     }
 
     @Override
